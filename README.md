@@ -13,5 +13,5 @@
     
 -------------------------------
 
-이 프로젝트는 000, 000, 000, 000에 의해 만들어짐
+이 프로젝트는 Eoryeong_Goh, Chaeu_Park, Seungheon_Ok, Seungchan_Lee에 의해 만들어짐
 
