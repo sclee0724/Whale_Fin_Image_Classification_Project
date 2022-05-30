@@ -7,7 +7,9 @@
 ### 모델 사용법 ###
 + 웹 서버 구동 파일 이름 : server.py
     + 서버를 구동할 경우
-       python server.py
+        <pre><code>
+        python server.py
+        </code></pre>
     
 -------------------------------
 
