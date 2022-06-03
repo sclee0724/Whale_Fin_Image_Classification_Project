@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    function fnMove(seq){
-        var offset = $(seq).offset();
-        $('html, body').animate({scrollTop : offset.top}, 500);
-    }
-
-</script>
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -84,7 +74,7 @@
       <!-- Background image -->
       <div id="intro" class="bg-image vh-100 shadow-1-strong">
         <video style="min-width: 100%; min-height: 100%;" playsinline autoplay muted loop>
-          <source class="h-100" src="https://media.istockphoto.com/videos/amazing-underwater-view-of-humpback-whales-swimming-in-the-ocean-video-id1208440118" type="video/mp4" />
+          <source class="h-100" src="{{url_for('static', filename='img/whale_video.mp4')}}" type="video/mp4" />
         </video>
         <div class="mask"     style="
         background: linear-gradient(
@@ -136,8 +126,40 @@
 
             </div>
           </div>
-        </section>
         <!--Section: Content-->
+
+        <hr class="my-5" />
+        <div class="row">
+          <div class="col-md-4 gx-5 mb-4">
+            <h4 data-aos="fade-zoom-in"><strong>데이터 수집 과정</strong><h4>
+            <p class="text-muted">
+              어쩌고 저쩌고
+            </p>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div class="row">
+          <div class="col-md-4 gx-5 mb-4">
+            <h4 data-aos="fade-zoom-in"><strong>CNN (합성 곱 신경망)</strong><h4>
+            <p class="text-muted">
+              어쩌고 저쩌고
+            </p>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div class="row">
+          <div class="col-md-4 gx-5 mb-4">
+            <h4 data-aos="fade-zoom-in"><strong>웹 제작</strong><h4>
+            <p class="text-muted">
+              어쩌고 저쩌고
+            </p>
+          </div>
+        </div>
+        </section>
 
         <hr class="my-5" />
 
@@ -148,15 +170,15 @@
           <div class="col-md-4 gx-5 mb-4">
             <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
             <div class="container file-upload">
-              <form action="/" method="post">
                 <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                  <form action = "/" method = "post">
+                    <input class="file-upload-input" type='file' name = "fin-image" onchange="readURL(this);" accept="image/*" />
                     <div class="drag-text">
                         <img src="{{url_for('static', filename='img/upload.svg')}}" class="mt-5 pt-5 upload">
                         <h3 class="mb-5 pb-5 pt-4  upload-text">지느러미 사진을 올리거 업로드 하시요!</h3>
                     </div>
+                  </form>
                 </div>
-              </form>
                 <div class="file-upload-content">
                     <img class="file-upload-image" id="fin-image" src="#" alt="your image" />
 
@@ -177,18 +199,13 @@
                 <p class="text-center">AI가 이미지를 분석하고 있습니다.</p>
               </div>
               <p class="result-message"></p>
-              <div id="label-container"></div>
+              <div id="label-container"></div>          
+                <span class="text-center mt-3"> 결과 : {{ result }}</span>           
             </div>
           </div>
         </div>
-
         <hr class="my-5" />
-
-        <!--Section: Content-->
-        <section class="mb-5">
-
         </section>
-        <!--Section: Content-->
       </div>
     </main>
     </div>
@@ -240,7 +257,7 @@
     <script type="text/javascript">
 
     const URL = "https://teachablemachine.withgoogle.com/models/xKAkCQayg/";
-    let model, webcam, labelContainer, maxPredictions;
+    let model, labelContainer, maxPredictions;
 
 
     async function init() {
@@ -303,8 +320,15 @@
     </script>
 
     <script type="text/javascript" src= "{{url_for('static', filename='js/mdb.min.js')}}"></script>
-    <!-- Custom scripts -->
     <script type="text/javascript" src= "{{url_for('static', filename='js/script.js')}}"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        function fnMove(seq){
+            var offset = $(seq).offset();
+            $('html, body').animate({scrollTop : offset.top}, 500);
+        }
 
+    </script>
 </body>
 </html>
