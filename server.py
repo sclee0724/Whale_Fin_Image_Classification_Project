@@ -22,7 +22,7 @@ app = Flask(__name__)
 def index():
     return render_template('ch_project_web_editing.html')
 
-@app.route("/", methods=['GET','POST'])
+@app.route("/image-classification", methods=['GET','POST'])
 def upload():
     if request.method == 'POST':
         x = request.files['fin-image']
