@@ -18,25 +18,16 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
-PATH = "./model/fin_classification_model.pt"
-
-torch.save(net.state_dict(), PATH)
-model = Net()
-model.load_state_dict(torch.load(PATH))
-model.eval()
-
-@app.route("/predict", method=['GET','POST'])
+@app.route("/")
 def index():
     return render_template('ch_project_web_editing.html')
 
-@app.route("/image-classification", methods=['GET','POST'])
-def upload():
+@app.route("/", methods=['GET','POST'])
+def predict():
     if request.method == 'POST':
-        x = request.files['fin-image']
-        return render_template('ch_project_web_editing.html', result=20)
-
-host_addr = "0.0.0.0"
-port_num = "8080"
+        x = request.files['file']
+        result = 10
+        return render_template('ch_project_web_editing.html', result = result)
 
 if __name__ == '__main__':
-    app.run(host=host_addr, port=port_num, debug=True)
+    app.run(debug=True)
