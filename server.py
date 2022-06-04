@@ -18,7 +18,14 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
-@app.route("/")
+PATH = "./model/fin_classification_model.pt"
+
+torch.save(net.state_dict(), PATH)
+model = Net()
+model.load_state_dict(torch.load(PATH))
+model.eval()
+
+@app.route("/predict", method=['GET','POST'])
 def index():
     return render_template('ch_project_web_editing.html')
 
