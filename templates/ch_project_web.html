@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    function fnMove(seq){
+        var offset = $(seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 500);
+    }
+
+</script>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>지느러미 이미지 분류 모델</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href= "{{url_for('static', filename='css/mdb.min.css')}}" >
+    <!-- Custom styles -->
+    <link rel="stylesheet" href= "{{url_for('static', filename='css/style.css')}}" >
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+</head>
+
+
+<body>
+  <script>
+    AOS.init();
+  </script>
+        <!--Main Navigation-->
+    <header>
+      <style>
+        @media (min-width: 992px) {
+          #intro {
+            margin-top: -58.59px;
+          }
+        }
+
+        .navbar .nav-link {
+          color: #fff !important;
+        }
+
+
+      </style>
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+            aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" aria-current="page" href="#intro">Home</a>
+              </li>
+
+            </ul>
+
+            <ul class="navbar-nav d-flex flex-row">
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="https://github.com/sclee0724/Whale-Fin-Image-Classification" rel="nofollow" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar -->
+
+      <!-- Background image -->
+      <div id="intro" class="bg-image vh-100 shadow-1-strong">
+        <video style="min-width: 100%; min-height: 100%;" playsinline autoplay muted loop>
+          <source class="h-100" src="https://media.istockphoto.com/videos/amazing-underwater-view-of-humpback-whales-swimming-in-the-ocean-video-id1208440118" type="video/mp4" />
+        </video>
+        <div class="mask"     style="
+        background: linear-gradient(
+          45deg,
+          rgba(29, 236, 197, 0.7),
+          rgba(91, 14, 214, 0.7) 100%
+        );
+      ">
+          <div class="container d-flex align-items-center justify-content-center text-center h-100">
+            <div class="text-white">
+              <h1 class="mb-3">지느러미 이미지 분류 모델</h1>
+              <h5 class="mb-4">빠르고 정확하게 포유류의 이미지를 보고 이름을 알아 냅니다.</h5>
+              <h5 class="mb-4">고래잡으러 가자~~ </h5>
+              <button type="button" class="btn btn-outline-light btn-lg" onclick="fnMove(main)","init()"> 시작하기 </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <div id="main">
+      <hr class="my-5" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-offset="500"/>
+    <main class="mt-5">
+      <div class="container">
+        <!--Section: Content-->
+        <section>
+          <div class="row">
+            <div class="col-md-4 gx-5 mb-4">
+              <div class="bg-image hover-overlay ripple shadow-2-strong" data-mdb-ripple-color="light" data-aos="zoom-in">
+                <img src="http://ecotopia.hani.co.kr/files/attach/images/69/133/046/catalogue.jpg" class="img-fluid" data-aos="fade-up" data-aos-offset="500"
+                data-aos-anchor-placement="top-bottom">
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-7 gx-5 mb-4">
+              <h4 data-aos="fade-zoom-in"><strong>지느러미</strong></h4>
+              <p class="text-muted" data-aos="fade-left" data-aos-easing="ease-in-sine">
+                우리는 지문과 얼굴 인식을 사용하여 사람들을 식별하지만 해양 생물들은 과연 어떻게 구분할수 있을까요?
+                사실, 연구자들은 꼬리, 등 지느러미, 머리 및 기타 신체 부위의 모양과 표시로 해양 생물을 수동으로 추적합니다.
+                그중 지느러미는 고래가 숨을 쉬기위해 해면에 자주 노출이 되므로 대부분의 연구자들은 지느러미의 모양으로 종을 추적한다.
+                하지만 연구자들의 눈으로만 구분하기에는 식별시간이 오래걸리므로 이미지 분류 모델이 있으면 99% 시간을 단축할수 있을것이다.
+              </p>
+
+            </div>
+          </div>
+        </section>
+        <!--Section: Content-->
+
+        <hr class="my-5" />
+
+        <!--Section: Content-->
+        <section class="text-center">
+          <h4 class="mb-5"><strong>이미지 분류 모델</strong></h4>
+          <div class = "row">
+          <div class="col-md-4 gx-5 mb-4">
+            <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <div class="container file-upload">
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <div class="drag-text">
+                        <img src="{{url_for('static', filename='img/upload.svg')}}" class="mt-5 pt-5 upload">
+                        <h3 class="mb-5 pb-5 pt-4  upload-text">지느러미 사진을 올리거 업로드 하시요!</h3>
+                    </div>
+                </div>
+                <div class="file-upload-content">
+                    <img class="file-upload-image" id="fin-image" src="#" alt="your image" />
+
+                    <div class="image-title-wrap">
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-7 gx-5 mb-10">
+            <div class="text-black">
+              <div id="loading" class="animated bounce">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <p class="text-center">AI가 이미지를 분석하고 있습니다.</p>
+              </div>
+              <p class="result-message"></p>
+              <div id="label-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <!--Section: Content-->
+        <section class="mb-5">
+
+        </section>
+        <!--Section: Content-->
+      </div>
+    </main>
+    </div>
+    <!--Main layout-->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        &copy; 전북대 창의적 IT공학 프로젝트 SC,SH,CH,OL. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!--Section: model-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('.image-upload-wrap').hide();
+                    $('#loading').show();
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+                    $('.image-title').html(input.files[0].name);
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(function() {
+                    console.log("hello");
+                    predict();
+                    $('#loading').hide();
+                });
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function() {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function() {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+    </script>
+    <script type="text/javascript">
+
+    const URL = "https://teachablemachine.withgoogle.com/models/xKAkCQayg/";
+    let model, webcam, labelContainer, maxPredictions;
+
+
+    async function init() {
+      const modelURL = URL + "model.json";
+      const metadataURL = URL + "metadata.json";
+
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+            var element = document.createElement("div")
+            element.classList.add("d-flex");
+            labelContainer.appendChild(element);
+        }
+    }
+
+    async function predict() {
+        var image = document.getElementById("fin-image")
+        const prediction = await model.predict(image, false);
+        prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+        var resultTitle, resultExplain;
+        switch (prediction[0].className) {
+            case "Dog":
+                resultTitle = "강아지"
+                resultExplain = "강아지는 개의 새끼를 일컫는다. 강아지는 성체로 발달하는 과정에 있으므로 자라면서 털색이나 체형 등이 달라질 수 있으며, 정서적인 변화를 겪기도 한다"
+                break;
+            case "Cat":
+                resultTitle = "고양이"
+                resultExplain = "고양이는 식육목 고양이과에 속하는 포유류이다. 들고양이는 약 10만 년에서 7만년 전부터 존재했다. 길들여진 고양이의 기원은 약 1만년 전 중동 지역에서 스스로 숲속을 나와 사람들이 모여사는 마을에 정착하여 길들여진 아프리카들고양이로 추측된다."
+                break;
+        }
+        var title = "<div class='" + prediction[0].className + "-animal-title'>" + resultTitle + "</div>"
+        var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
+        $('.result-message').html(title + explain);
+
+        for (let i = 0; i < maxPredictions; i++) {
+            if (prediction[i].probability.toFixed(2) > 0.1) {
+                barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + "%";
+            } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                barWidth = "4%"
+            } else {
+                barWidth = "2%"
+            }
+            var labelTitle;
+            switch (prediction[i].className) {
+                case "Dog":
+                    labelTitle = "강아지"
+                    break;
+                case "Cat":
+                    labelTitle = "고양이"
+                    break;
+                default:
+                    labelTitle = "알수없음"
+            }
+            var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+            var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
+            labelContainer.childNodes[i].innerHTML = label + bar;
+        }
+    }
+    </script>
+
+    <script type="text/javascript" src= "{{url_for('static', filename='js/mdb.min.js')}}"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src= "{{url_for('static', filename='js/script.js')}}"></script>
+
+</body>
+</html>

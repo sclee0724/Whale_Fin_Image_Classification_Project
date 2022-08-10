@@ -1,0 +1,22 @@
+{% extends "ch_project_web_editing.html" %}
+
+{% block content %}
+	<div id="result">
+		<div class="container file-upload">
+		<img src= "/static/img/{{image_name}}.jpg" class = "rounded" height= "400 class="img-fluid" data-aos="fade-up" data-aos-offset="500""
+		data-aos-anchor-placement="top-bottom">
+	<div class="text-black">
+		<p class = 'Cat-animal-title'> {{predictions}}</p>
+		<p class = 'animal-explain' data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease-in-sine"> {{explain}}</p>
+		<div id="label-container"></div>          
+			<p class="text-center mt-3"> 
+			</p>   
+	</div>
+	<button type="button p-2" class="try-again-btn" onclick="location.href='http://localhost:4100' ">
+			<span class="try-again-text">다른 사진으로 재시도</span>
+	</button>
+</div>
+	</div>
+
+
+{% endblock %}
