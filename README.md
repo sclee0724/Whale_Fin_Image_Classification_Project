@@ -14,6 +14,15 @@
     멸치고래 | 큰고래 | 범고래 | 밍크고래 | 돌쇠고래
     민부리고래 | 귀신고래 | 참거두고래 | 돌고양이고래 | 남방참고래
 -------------------------------
+### 소스파일 ###
+<div>
+    <a href="https://colab.research.google.com/drive/1J0MWPolMQmzzW8IPybP0Zk8WjykTF_Vy?usp=sharing">
+    <img src="https://img.shields.io/badge/Go To Colab-F9AB00?style=flat-square&logo=google colab&logoColor=white"/></a>
+    <a href="https://drive.google.com/file/d/1F4eLUG1We_V08n4l8JvAbw8b5MC8HBai/view?usp=sharing">
+    <img src="https://img.shields.io/badge/Download Model-4285F4?style=flat-square&logo=Google Drive&logoColor=white"/></a>
+</div>
+
+-------------------------------
 ### 모델 사용법 ###
 + 웹 서버 구동 파일 이름 : server.py
     + 서버를 구동할 경우
