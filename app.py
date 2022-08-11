@@ -5,7 +5,7 @@ import os
 from model_file import *
 from whale_title import *
 
-model.load_state_dict(torch.load('./model/VGG-model.pt',map_location ='cpu'))
+model.load_state_dict(torch.load('./model/VGG-whaleFin_ImageClassification_model.pt',map_location ='cpu'))
 model.eval()
 
 # Define a flask app
