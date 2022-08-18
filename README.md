@@ -36,5 +36,5 @@
 
 ![KakaoTalk_20220811_230929582](https://user-images.githubusercontent.com/79682941/184157295-5773aa36-3174-4fbc-8ee8-a7ab0e87877a.png)
 
-이 프로젝트는 Eoryeong_Goh, Chaeu_Park, Seungheon_Ok, Seungchan_Lee에 의해 만들어짐
+이 프로젝트는 Eoryeong_Goh, Chaeu_Park, Seungheon_Ok, Seungchan_Lee에 의해 만들어짐 
 
