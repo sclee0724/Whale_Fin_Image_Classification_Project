@@ -7,12 +7,12 @@
 ### Model Introduction ##
 > Our embedded model on the web is a Convolutional Neural Network (CNN) based on VGGNet (vgg11), which has been trained with approximately 21,000 images for 140 epochs. With this trained model, we can identify the species of 15 different whales. Unfortunately, other marine mammals such as dolphins and sharks are not included in the classification targets of our model, and the supported whale species are shown in the left image. Please feel free to input your own image to check the whale species!
 
-+ 분류가능 대상 
++ Classification Targets: 
 
-    대왕고래 | 흑범고래 | 혹등고래 | 고양이고래 | 보리고래
+    Blue Whale | Fin Whale | Humpback Whale | Sperm Whale | Beluga Whale
     ---- | ---- | ---- | ---- | ----
-    멸치고래 | 큰고래 | 범고래 | 밍크고래 | 돌쇠고래
-    민부리고래 | 귀신고래 | 참거두고래 | 돌고양이고래 | 남방참고래
+    Minke Whale | Sei Whale | Bryde's Whale | Mink Whale | Dall's Porpoise
+    Common Porpoise | False Killer Whale | Killer Whale | Risso's Dolphin | Southern Right Whale
 -------------------------------
 ### Source File ###
 <div>
