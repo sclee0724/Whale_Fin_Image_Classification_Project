@@ -1,6 +1,6 @@
 # 🐳 Whale_Fin_Image_Classification_Project #
 ----------------------------
-+ 이 프로젝트는 전북대 창의적 IT 공학설계의 결과물이다. 
++ This project is the result of the Creative IT Engineering Design class at JNBU National University.. 
 ### Reasons for Project Planning ###
 > Have you ever seen a whale up close? It's quite rare to see whales in South Korea, even in the vast blue Pacific Ocean. Even if you're lucky enough to see a whale, there's a high chance that you'll only see its fin above the water. Despite this, it's an incredible experience, and you may be curious to know which species of whale it is. It's usually difficult for the average person to distinguish between different whale species just by seeing their fins. But don't worry, our model can help you quickly and accurately identify which species of whale it is!
 -------------------------------
@@ -23,10 +23,11 @@
 </div>
 
 -------------------------------
-### 모델 사용법 ###
-+ 웹 서버 구동 파일 이름 : server.py
-    + 서버를 구동할 경우
-        > 파일 경로를 설정한후 다음과 같이 입력
+### How to Use the Model ###
++ Web Server Execution File Name : server.py
+    + To run the server
+        > 
+        > Set the file path and enter the following command:
         <pre><code>
         python app.py
         </code></pre>
